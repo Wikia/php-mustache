@@ -1,0 +1,19 @@
+{
+    "name": "wikia/php-mustache",
+    "type": "php-ext",
+    "description": "Mustache templating language extension for PHP (Fandom fork)",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.1"
+    },
+    "php-ext": {
+        "extension-name": "mustache",
+        "configure-options": [
+            {
+                "name": "with-libmustache",
+                "description": "libmustache installation prefix (uses pkg-config by default)",
+                "needs-value": true
+            }
+        ]
+    }
+}
