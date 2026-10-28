@@ -7,9 +7,11 @@ FROM ${BASE_IMAGE}
 ARG LIBMUSTACHE_VERSION
 WORKDIR /build
 
-RUN dnf groupinstall 'Development Tools' -y
 RUN dnf install \
     gcc \
+    gcc-c++ \
+    make \
+    git \
     automake \
     autoconf \
     libtool \
@@ -50,4 +52,4 @@ RUN dnf install php-cli -y
 COPY --from=0 /usr/lib64/php/modules/mustache.so /usr/lib64/php/modules/mustache.so
 # please forgive me
 COPY --from=0 /usr/lib64/php/build/run-tests.php /usr/local/lib/php/build/run-tests.php
-RUN echo extension=mustache.so | sudo tee /etc/php.d/90-mustache.ini
+RUN echo extension=mustache.so | tee /etc/php.d/90-mustache.ini
