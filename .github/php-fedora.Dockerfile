@@ -7,7 +7,6 @@ FROM ${BASE_IMAGE}
 ARG LIBMUSTACHE_VERSION
 WORKDIR /build
 
-RUN dnf group install 'Development Tools' -y
 RUN dnf install \
     gcc \
     gcc-c++ \
